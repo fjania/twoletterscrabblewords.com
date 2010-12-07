@@ -65,6 +65,8 @@ body {
   margin: 3px;
   position: relative;
   border-radius: 3px;
+  background: #BBBB00;
+  background: -moz-linear-gradient(top, #CCCC11, #BBBB00);
   background: -webkit-gradient(linear, left top, left bottom, from(#CCCC11), to(#BBBB00));
 }
 
