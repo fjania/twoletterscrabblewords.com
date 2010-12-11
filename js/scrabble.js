@@ -7,7 +7,7 @@ tlw = {
 	'AH':'interjection|used to express delight, relief, or contempt',
 	'AI':'noun (-s)|a three-toed sloth',
 	'AL':'noun (-s)|an East Indian tree',
-	'AM':'verbrb|present 1st person singular of BE',
+	'AM':'verb|present 1st person singular of BE',
 	'AN':'indefinite article|used before words beginning with a vowel',
 	'AR':'noun (-s)|the letter R',
 	'AS':'adverb|to the same degree',
