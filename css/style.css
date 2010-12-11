@@ -1,125 +1,95 @@
-/* v1.0 | 20080212 */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-
-/* remember to define focus styles! */
-:focus {
-	outline: 0;
-}
-
-/* remember to highlight inserts somehow! */
-ins {
-	text-decoration: none;
-}
-del {
-	text-decoration: line-through;
-}
-
-/* tables still need 'cellspacing="0"' in the markup */
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
 body {
   margin: 10px;
   position: relative;
   font-family: verdana;
 }
 
-.tile {
-  left: 0px;
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  vertical-align: middle;
-  margin: 3px;
-  position: relative;
-  border-radius: 3px;
-  background: #BBBB00;
-  background: -moz-linear-gradient(top, #CCCC11, #BBBB00);
-  background: -webkit-gradient(linear, left top, left bottom, from(#CCCC11), to(#BBBB00));
-}
-
-.letter {
-  left: 0px;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.value {
-  top: 17px;
-  left: 17px;
-  width: 10px;
-  height: 10px;
-  line-height: 10px;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 10px;
-  position: absolute;
-}
-
 #first, #second {
   left: 0px;
-  width: 30px;
-  height: 300px;
+  width: 34px;
   position: absolute;
+  background: #6B0707;
+  background: -moz-linear-gradient(left, #6B0707 0%, #96161C 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,#6B0707), color-stop(100%,#96161C));
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6B0707', endColorstr='#96161C',GradientType=1 );
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  height: 784px;
+}
+
+#definitions {
+  left: 0px;
+  width: 34px;
+  position: absolute;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  height: 784px;
+}
+
+#second {
+  left: 408px;
 }
 
 #lines {
   left: 36px;
-/*
-  width: 170px;
-  height: 856px;
-  background-color: #F0F0F0;
-*/
   position: absolute;
   margin-top: 3px;
   margin-bottom: 3px;
 }
 
-#second {
-  left: 406px;
+.tilewrapper {
+  position: relative;
+  height: 30px;
+}
+
+.arrow {
+  position: absolute;
+  left: 5px;
+  top: 11px;
+  width: 10px;
+  height: 10px;
+  background: #6B0707;
+  -webkit-transform:rotate(45deg);
+  -moz-transform:rotate(45deg);
+}
+
+.tile {
+  left: 0px;
+  height: 27px;
+  width: 27px;
+  margin: 3px;
+  text-align: center;
+  vertical-align: middle;
+  background: url(tile-bg.png) no-repeat;
+  font-family: 'Inconsolata', arial, serif;
+  position: absolute;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -webkit-box-shadow: 1px 1px 0px #a9957b;
+  -moz-box-shadow: 1px 1px 0px #a9957b;
+  box-shadow: 1px 1px 0px #a9957b; 
+}
+
+.tile .letter {
+  font-weight: normal;
+  font-size: 20px;
+  position: absolute;
+  left: 6px;
+  top: 1px;
+}
+
+.tile .value {
+  position: absolute;
+  font-size: 12px;
+  font-weight: normal;
+  bottom: 1px;
+  right: 3px;
+  letter-spacing: -2px;
 }
 
 #definitions {
-  left: 450px;
+  left: 445px;
   width: 500px;
-  height: 300px;
   position: absolute;
   margin-bottom: 3px;
 }
@@ -127,8 +97,24 @@ body {
 .definition {
   left: 0px;
   height: 30px;
-  line-height: 30px;
-  vertical-align: middle;
+}
+
+.definition .text {
+  left: 68px;
+  position: absolute;
+  width: 500px;
+  line-height: 12px;
   margin: 3px;
-  font-size: 10pt;
+}
+
+.text .pos {
+  font-style: italic;
+  color: #999999;
+  font-size: 8pt;
+  line-height: 9pt;
+}
+
+.text .def{
+  font-size: 9pt;
+  line-height: 9pt;
 }
