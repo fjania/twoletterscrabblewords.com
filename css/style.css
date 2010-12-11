@@ -54,10 +54,10 @@
 
 .arrow {
   position: absolute;
-  left: 5px;
-  top: 11px;
-  width: 10px;
-  height: 10px;
+  left: 3px;
+  top: 12px;
+  width: 8px;
+  height: 8px;
   background: #6B0707;
   -webkit-transform:rotate(45deg);
   -moz-transform:rotate(45deg);
@@ -78,6 +78,10 @@
   -webkit-box-shadow: 1px 1px 0px #a9957b;
   -moz-box-shadow: 1px 1px 0px #a9957b;
   box-shadow: 1px 1px 0px #a9957b; 
+}
+
+.tile-off{
+  background: url(tile-bg-off.png) no-repeat;
 }
 
 .tile .letter {
@@ -104,14 +108,18 @@
   margin-bottom: 3px;
 }
 
-.definition {
+.definitionslot {
   left: 0px;
   height: 30px;
   font-family: verdana;
 }
 
+.definition {
+  position: relative;
+}
+
 .definition .text {
-  left: 68px;
+  left: 75px;
   position: absolute;
   width: 400px;
   line-height: 12px;
@@ -128,4 +136,22 @@
 .text .def{
   font-size: 9pt;
   line-height: 9pt;
+}
+
+.deftile1 {
+  left: 0px;
+}
+
+.deftile2 {
+  left: 30px;
+}
+
+.defwrapper {
+  position: absolute;
+  height: 33px;
+  width: 64px;
+  background-color: #6B0707;
+  left: 6px;
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
 }

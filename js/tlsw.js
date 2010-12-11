@@ -1,32 +1,21 @@
 $(document).ready(function(){
   for (var letter in letters){
-    $('#first').append(getTile(1, letter));
-    $('#second').append(getTile(2, letter));
+    $('#first').append(wrapTile(getTile(1, letter)));
+    $('#second').append(wrapTile(getTile(2, letter)));
     $('#definitions').append(getDefinitionContainer(letter));
   }
-  $('#first .tile').hover(function(){
+  $('#first .tile').click(function(){
     initCanvas();
     drawAllLines();
     clearDefinitions();
     drawLinesStartingWith(this.id.charAt(this.id.length-1));
-  },
-  function(){
-    initCanvas();
-    drawAllLines();
-    clearDefinitions();
   });
-  
-  $('#second .tile').hover(function(){
+  $('#second .tile').click(function(){
     initCanvas();
     drawAllLines();
     clearDefinitions();
     drawLinesEndingWith(this.id.charAt(this.id.length-1));
-  },
-  function(){
-    initCanvas();
-    drawAllLines();
-    clearDefinitions();
-  })
+  });
 
   tileHeight = 30;
   
@@ -35,7 +24,7 @@ $(document).ready(function(){
 });
 
 function clearDefinitions(){
-  $('#definitions').children().html("");
+  $('.definition').html("");
 }
 
 function showDefinition(letter, word){
@@ -101,17 +90,40 @@ function drawLine(firstletter, secondletter, heavy){
   }  
 }
 
-function getTile(number, letter){
-  return "<div class='tilewrapper'><div class='tile' id='tile-"+number+"-"+letter+"'><div class='letter'>" + letter + "</div><div class=value>" + letters[letter] + "</div></div></div>"
+function wrapTile(tileHTML, wrapperclass){
+  if (!wrapperclass){
+    wrapperclass = "tilewrapper" 
+  }
+  return "<div class='" + wrapperclass + "'>" + tileHTML + "</div>"
+}
+
+function getTile(number, letter, additionalclass){
+  if (number > 0){
+    id = "id='tile-" + number +"-"+ letter + "'";
+  } else {
+    id = "";
+  }
+  if (!additionalclass){
+    additionalclass="";
+  }
+  if (letter == "C" || letter == "V"){
+    additionalclass = "tile-off";
+  }
+  var output =  "<div class='tile " + additionalclass + "' " + id + ">" +
+                  "<div class='letter'>" + letter + "</div>" +
+                  "<div class='value'>" + letters[letter] + "</div>" +
+                "</div>";
+  return output;
 }
 
 function getDefinitionHTML(word){
   var a = word.substr(0,1);
   var b = word.substr(1,1);
   def = tlw[word].split('|');
-  return "<div class='tilewrapper'><div class='arrow'></div><div class='tile' style='left: 5px'><div class='letter'>" + a + "</div><div class=value>" + letters[a] + "</div></div><div class='tile' style='left: 35px'><div class='letter'>" + b + "</div><div class=value>" + letters[b] + "</div></div><div class='text'><span class='pos'>" + def[0] + "</span><br/><span class='def'>" + def[1] + "</span></div></div>"
+  var html = "<div class='arrow'></div>" + wrapTile(getTile(-1, a, 'deftile1') + getTile(-1, b, 'deftile2'), 'defwrapper') + "<div class='text'><span class='pos'>" + def[0] + "</span><br/><span class='def'>" + def[1] + "</span></div></div>"
+  return html;
 }
 
 function getDefinitionContainer(letter){
-  return "<div class='definition' id='def-"+letter+"'></div>"
+  return "<div class='definitionslot'><div class='definition' id='def-"+letter+"'></div></div>"
 }
