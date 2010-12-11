@@ -77,7 +77,8 @@
   -webkit-border-radius: 4px;
   -webkit-box-shadow: 1px 1px 0px #a9957b;
   -moz-box-shadow: 1px 1px 0px #a9957b;
-  box-shadow: 1px 1px 0px #a9957b; 
+  box-shadow: 1px 1px 0px #a9957b;
+  cursor: pointer;
 }
 
 .tile-off{

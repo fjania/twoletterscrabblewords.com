@@ -1,7 +1,15 @@
 $(document).ready(function(){
   for (var letter in letters){
-    $('#first').append(wrapTile(getTile(1, letter)));
-    $('#second').append(wrapTile(getTile(2, letter)));
+    if ("CV".indexOf(letter) == -1){
+      $('#first').append(wrapTile(getTile(1, letter)));
+    } else {
+      $('#first').append(wrapTile(getTile(1, letter, "tile-off")));
+    }
+    if ("CJKQVZ".indexOf(letter) == -1){
+      $('#second').append(wrapTile(getTile(2, letter)));
+    } else {
+      $('#second').append(wrapTile(getTile(2, letter, "tile-off")));
+    }
     $('#definitions').append(getDefinitionContainer(letter));
   }
   $('#first .tile').click(function(){
@@ -105,9 +113,6 @@ function getTile(number, letter, additionalclass){
   }
   if (!additionalclass){
     additionalclass="";
-  }
-  if (letter == "C" || letter == "V"){
-    additionalclass = "tile-off";
   }
   var output =  "<div class='tile " + additionalclass + "' " + id + ">" +
                   "<div class='letter'>" + letter + "</div>" +
